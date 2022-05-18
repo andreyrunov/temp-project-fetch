@@ -1,0 +1,13 @@
+body {
+  margin: 30px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: start;
+}
+
+.card {
+  margin: 10px;
+  
+}

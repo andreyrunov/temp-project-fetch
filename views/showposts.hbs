@@ -1,0 +1,14 @@
+<div class="wrapper">
+  {{#each posts}}
+  <div class="card" style="width: 250px">
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">{{this.text}}
+      </p>
+      <form action="/delete/{{this.id}}" method="post">
+        <button type="submit" name="delete" class="btn btn-link">Удалить пост</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
