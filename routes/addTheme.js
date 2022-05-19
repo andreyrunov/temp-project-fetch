@@ -5,10 +5,10 @@ const { Theme, Post } = require('../db/models');
 router.get('/', async (req, res) => {
   try {
     await Post.create(req.query);
-    return res.status(200).redirect('/addpost');
+    return res.status(200).redirect('/post');
   } catch (err) {
     console.log(err);
-    return res.redirect('/addpost');
+    return res.redirect('/post');
   }
 });
 

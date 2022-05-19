@@ -6,7 +6,7 @@ const hbs = require('hbs');
 const PORT = process.env.DB_PORT;
 const app = express();
 const indexRout = require('./routes/indexRout');
-const addpost = require('./routes/addpost');
+const postRout = require('./routes/postRout');
 const showPosts = require('./routes/showPosts');
 const deletePost = require('./routes/deletePost');
 const addTheme = require('./routes/addTheme');
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 
 app.use('/', indexRout);
-app.use('/addpost', addpost);
+app.use('/post', postRout);
 app.use('/showPosts', showPosts);
 app.use('/delete/', deletePost);
 app.use('/addTheme', addTheme);
