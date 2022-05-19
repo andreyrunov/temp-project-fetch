@@ -9,6 +9,7 @@ const indexRout = require('./routes/indexRout');
 const addpost = require('./routes/addpost');
 const showPosts = require('./routes/showPosts');
 const deletePost = require('./routes/deletePost');
+const addTheme = require('./routes/addTheme');
 
 app.set('view engine', 'hbs');
 hbs.registerPartials(`${__dirname}/views/partials`);
@@ -18,9 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 
 app.use('/', indexRout);
-app.use('/', addpost);
-app.use('/', showPosts);
-app.use('/', deletePost);
+app.use('/addpost', addpost);
+app.use('/showPosts', showPosts);
+app.use('/delete/', deletePost);
+app.use('/addTheme', addTheme);
 
 app.listen(PORT, () => {
   console.log('Server start on port', PORT);
