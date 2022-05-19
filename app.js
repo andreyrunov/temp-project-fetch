@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const PORT = process.env.DB_PORT;
 const app = express();
 const indexRout = require('./routes/indexRout');
+const fetchRout = require('./routes/fetchRout');
 const postRout = require('./routes/postRout');
 const showPosts = require('./routes/showPosts');
 const deletePost = require('./routes/deletePost');
@@ -23,6 +24,7 @@ app.use('/post', postRout);
 app.use('/showPosts', showPosts);
 app.use('/delete/', deletePost);
 app.use('/addTheme', addTheme);
+app.use('/fetch', fetchRout);
 
 app.listen(PORT, () => {
   console.log('Server start on port', PORT);
