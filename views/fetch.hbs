@@ -1,1 +1,46 @@
 <h1>New Page - Fetch</h1>
+<div class="upper_wrapper">
+  <form action="/fetch" name="addForm" method="post">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Заголовок</span>
+      <input type="text" name="nameItems" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Описание</span>
+      <input type="text" name="description" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Цена</span>
+      <input type="text" name="price" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default">
+    </div>
+    <select class="form-select mb-3" name="cat_id" aria-label="Default select example">
+      <option selected>Выберите тему</option>
+      {{#each titles}}
+      <option value={{this.id}}>{{this.nameCategory}}</option>
+      {{/each}}
+    </select>
+    <button type="submit" id="add" class="btn btn-primary">Добавить</button>
+  </form>
+
+  <h2>Объявления</h2>
+
+  <div class="wrapper">
+    {{#each posts}}
+    <div class="card" style="width: 250px">
+      <div class="card-body">
+        <h5 class="card-title">{{this.nameItems}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Цена{{this.prise}}</h6>
+        <p class="card-text">{{this.description}}
+        </p>
+        <form action="/delete/{{this.id}}" method="post">
+          <button type="submit" name="delete" class="btn btn-link">Удалить пост</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <script src="/js/client.js"></script>
+</div>

@@ -5,6 +5,7 @@ const hbs = require('hbs');
 
 const PORT = process.env.DB_PORT;
 const app = express();
+const path = require('path');
 const indexRout = require('./routes/indexRout');
 const fetchRout = require('./routes/fetchRout');
 const postRout = require('./routes/postRout');
@@ -17,7 +18,9 @@ hbs.registerPartials(`${__dirname}/views/partials`);
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(`${__dirname}/public`));
+// app.use(express.static(`${__dirname}/public`));
+app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(express.json());
 
 app.use('/', indexRout);
 app.use('/post', postRout);
